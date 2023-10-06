@@ -1,4 +1,5 @@
 import axios from "axios";
+import cors from '../middleware/cors'; 
 
 const apiKey = "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"; // Replace with your ChatGPT API key
 const chatGptEndpoint = "https://api.openai.com/v1/engines/davinci/completions"; // Replace with the ChatGPT API endpoint
@@ -9,6 +10,7 @@ import { generateImages } from "./generateImages"; // Import the generateImages 
 let generatedImages = [];
 export default async (req, res) => {
 
+  await cors(req, res);
 
     if (req.method === "POST") {
       try {

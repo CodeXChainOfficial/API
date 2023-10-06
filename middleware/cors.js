@@ -1,11 +1,16 @@
 import Cors from 'cors';
 
 // Initializing the cors middleware
-const cors = Cors({
-    methods: ['GET', 'HEAD', 'POST'],
-    origin: 'http://localhost:3004', // Replace with your frontend's origin
-    
-  });
+const cors = require("cors");
+
+// Initialize CORS middleware
+app.use(
+  cors({
+    origin: "https://nft-alpha-eight.vercel.app", // Replace with your NFT app's domain
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  })
+);
+
   console.log("localhost3004 cors run");
 export default function handler(req, res) {
   // Run the cors middleware
